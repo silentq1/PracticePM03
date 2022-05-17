@@ -20,6 +20,7 @@ namespace Session1
     /// </summary>
     public partial class MainWindow : Window
     {
+        User sh;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +32,21 @@ namespace Session1
             passwprd.Text = "";
             kod.Text = "";
 
+        }
+
+        private void numba_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && numba.Text != String.Empty)
+            {
+                using (Session1Entities zxc = new Session1Entities())
+                {
+                    sh = zxc.User.FirstOrDefault(b => b.Phone_Number == numba.Text);
+                }
+                if (sh != null)
+                {
+                    passwprd.IsEnabled = true;
+                }
+            }
         }
     }
 }

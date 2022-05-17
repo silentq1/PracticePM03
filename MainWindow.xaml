@@ -19,13 +19,13 @@
         <Label Content="Пароль" HorizontalAlignment="Right" Margin="0,42,343,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.503,-0.764"/>
         <Label Content="Код" HorizontalAlignment="Right" Margin="0,74,371,0" Grid.Row="1" VerticalAlignment="Top" FontSize="16"/>
 
-        <TextBox Name="numba" HorizontalAlignment="Right" Height="23" Margin="0,14,207,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="14"/>
-        <TextBox Name="passwprd" HorizontalAlignment="Right" Height="23" Margin="0,46,207,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="14"/>
-        <TextBox Name="kod" HorizontalAlignment="Right"  Height="23" Margin="0,78,247,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="14"/>
+        <TextBox Name="numba" HorizontalAlignment="Right" Height="23" Margin="0,14,207,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="14" KeyDown="numba_KeyDown"/>
+        <TextBox Name="passwprd" IsEnabled="False" HorizontalAlignment="Right" Height="23" Margin="0,46,207,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="14"/>
+        <TextBox Name="kod" IsEnabled="False" HorizontalAlignment="Right"  Height="23" Margin="0,78,247,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="80" FontSize="14"/>
 
-        <Button Name="cnclBtn" Content="Отмена" HorizontalAlignment="Right" Margin="0,123,323,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="cnclBtn_Click"/>
-        <Button Name="entBtn" Content="Вход" HorizontalAlignment="Right" Margin="0,123,207,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
-        <Button HorizontalAlignment="Right" Margin="0,74,207,0" Grid.Row="1" VerticalAlignment="Top" Width="35" Height="27"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+        <Button Name="cnclBtn" IsEnabled="False" Content="Отмена" HorizontalAlignment="Right" Margin="0,123,323,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="cnclBtn_Click"/>
+        <Button Name="entBtn"  IsEnabled="False" Content="Вход" HorizontalAlignment="Right" Margin="0,123,207,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
+        <Button Name="refresh" IsEnabled="False" HorizontalAlignment="Right" Margin="0,74,207,0" Grid.Row="1" VerticalAlignment="Top" Width="35" Height="27"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
             <Image Source="image/Update.jpg" Stretch="Fill" StretchDirection="Both"/>
         </Button>
 
