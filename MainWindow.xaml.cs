@@ -21,6 +21,8 @@ namespace Session1
     public partial class MainWindow : Window
     {
         User sh;
+        string qwe;
+        int qw;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,6 +48,52 @@ namespace Session1
                 {
                     passwprd.IsEnabled = true;
                 }
+                MessageBox.Show(sh.Password);
+            }
+        }
+
+        private void passwprd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && passwprd.Text != String.Empty)
+            {
+                if (sh.Password == passwprd.Text)
+                {
+                    Random rand = new Random();
+                    string code = null;
+                    for (int i = 0; i < 3; i++)
+                        code += Convert.ToString(rand.Next(0, 9));
+                    qwe = code;
+                    qw = DateTime.Now.Second;
+                    MessageBox.Show("Код для входа: " + code);
+                    refresh.IsEnabled = true;
+                    kod.IsEnabled = true;
+                    entBtn.IsEnabled = true;
+                    cnclBtn.IsEnabled = true;
+                }
+               
+            }
+
+        }
+
+        private void entBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (qwe == kod.Text && (Math.Abs(DateTime.Now.Second - qw)) < 10)
+            {
+                MessageBox.Show(sh.FIO);
+            }
+        }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            if (passwprd.Text != String.Empty && numba.Text != String.Empty)
+            {
+                Random rand = new Random();
+                string code = null;
+                for (int i = 0; i < 3; i++)
+                    code += Convert.ToString(rand.Next(0, 9));
+                qwe = code;
+                qw = DateTime.Now.Second;
+                MessageBox.Show("Код для входа: " + code);
             }
         }
     }
