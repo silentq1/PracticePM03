@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="Session1Model.District" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.Hardware" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.Hardware_Port" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Session1Model.Hardware_Type" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Session1Model.Hardware_Type" Width="1.5" PointX="0.875" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.Maintenance_Staff" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.Port" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.Request" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
