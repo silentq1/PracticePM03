@@ -46,6 +46,7 @@ namespace Session2
         private void EquipTextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HeaderTextBlock.Text = "Управление оборудованием ТНС";
+            MainFrame.Navigate(new Pages.Control());
         }
 
         private void AssetsTextBox_MouseDown(object sender, MouseButtonEventArgs e)
