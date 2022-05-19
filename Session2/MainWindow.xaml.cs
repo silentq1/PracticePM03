@@ -17,7 +17,7 @@ namespace Session2
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    /// </summary>a
     public partial class MainWindow : Window
     {
         List<User> userList = new List<User>();
