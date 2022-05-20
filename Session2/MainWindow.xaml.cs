@@ -41,6 +41,7 @@ namespace Session2
         private void SubsTextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HeaderTextBlock.Text = "Абоненты ТНС";
+            MainFrame.Navigate(new Abonent());
         }
 
         private void EquipTextBox_MouseDown(object sender, MouseButtonEventArgs e)
@@ -52,21 +53,25 @@ namespace Session2
         private void AssetsTextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HeaderTextBlock.Text = "Активы ТНС";
+            MainFrame.Navigate(new Empty());
         }
 
         private void BillingTextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HeaderTextBlock.Text = "Биллинг ТНС";
+            MainFrame.Navigate(new Billing());
         }
 
         private void SupprtTextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HeaderTextBlock.Text = "Поддержка пользователей ТНС";
+            MainFrame.Navigate(new Support());
         }
 
         private void crmTextBox_MouseDown(object sender, MouseButtonEventArgs e)
         {
             HeaderTextBlock.Text = "CRM ТНС";
+            MainFrame.Navigate(new Empty());
         }
 
         private void UsersComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

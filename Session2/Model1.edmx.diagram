@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="51df201e210c41ea9c6d85b0902018c1" Name="Diagram1">
+      <Diagram DiagramId="51df201e210c41ea9c6d85b0902018c1" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="Session1Model.Connection_Point" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.District" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Session1Model.Hardware" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
@@ -24,6 +24,11 @@
         <AssociationConnector Association="Session1Model.FK_Maintenance_Staff_Request" ManuallyRouted="false" />
         <AssociationConnector Association="Session1Model.FK_Service_Type_Request" ManuallyRouted="false" />
         <AssociationConnector Association="Session1Model.FK_User_Request" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Session1Model.Тарифы" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Session1Model.Payments" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Session1Model.Access_Networks" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Session1Model.Highway" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Session1Model.Suds_Equipment" Width="1.5" PointX="8.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
