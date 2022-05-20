@@ -4,7 +4,20 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Session1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Session1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Access_Networks">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Наименование" Type="text" Nullable="false" />
+          <Property Name="Количество_портов" Type="int" Nullable="false" />
+          <Property Name="Стандарт_передачи_данных" Type="text" Nullable="false" />
+          <Property Name="Частота" Type="float" Nullable="false" />
+          <Property Name="Интерфейсы" Type="text" Nullable="false" />
+          <Property Name="Скорость_передачи_данных" Type="text" Nullable="false" />
+          <Property Name="Место_расположения" Type="text" Nullable="false" />
+        </EntityType>
         <EntityType Name="Connection_Point">
           <Key>
             <PropertyRef Name="Connection_Point_ID" />
@@ -50,6 +63,17 @@
           <Property Name="Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type_Name" Type="nchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="Highway">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Название" Type="text" Nullable="false" />
+          <Property Name="С_Частота" Type="float" Nullable="false" />
+          <Property Name="C_Коэффициент_затухания" Type="text" Nullable="false" />
+          <Property Name="C_Технология_передачи_данных" Type="text" Nullable="false" />
+          <Property Name="C_Расположение" Type="text" Nullable="false" />
+        </EntityType>
         <EntityType Name="Maintenance_Staff">
           <Key>
             <PropertyRef Name="Worker_ID" />
@@ -59,6 +83,17 @@
           <Property Name="Post_Title" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone_Number" Type="nchar" MaxLength="12" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Номер_абонента" />
+          </Key>
+          <Property Name="Дата_платежа" Type="datetime" Nullable="false" />
+          <Property Name="Сумма_платежа" Type="float" Nullable="false" />
+          <Property Name="Баланс_абонента" Type="float" Nullable="false" />
+          <Property Name="Дата_баланска" Type="datetime" Nullable="false" />
+          <Property Name="Задолженность" Type="float" Nullable="false" />
+          <Property Name="Номер_абонента" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Port">
           <Key>
@@ -93,6 +128,17 @@
           <Property Name="Service_Type_ID" Type="int" Nullable="false" />
           <Property Name="Service_Name" Type="nchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <EntityType Name="Suds_Equipment">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Наименование" Type="text" Nullable="false" />
+          <Property Name="Порты" Type="text" Nullable="false" />
+          <Property Name="Стандарт_передачи" Type="text" Nullable="false" />
+          <Property Name="Скорость" Type="text" Nullable="false" />
+          <Property Name="Адрес_абонента" Type="text" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="User_ID" />
@@ -107,6 +153,15 @@
           <Property Name="Address" Type="nchar" MaxLength="70" Nullable="false" />
           <Property Name="Passport_Series_Number" Type="int" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Тарифы">
+          <Key>
+            <PropertyRef Name="Услуга" />
+          </Key>
+          <Property Name="Услуга" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Навзание_тарифа" Type="text" Nullable="false" />
+          <Property Name="Условия" Type="text" Nullable="false" />
+          <Property Name="Стоимость_руб_мес" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="FK_District_Request">
           <End Role="District" Type="Self.District" Multiplicity="1" />
@@ -217,16 +272,21 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище Session1ModelContainer">
+          <EntitySet Name="Access_Networks" EntityType="Self.Access_Networks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Connection_Point" EntityType="Self.Connection_Point" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hardware_Port" EntityType="Self.Hardware_Port" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hardware_Type" EntityType="Self.Hardware_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Highway" EntityType="Self.Highway" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Maintenance_Staff" EntityType="Self.Maintenance_Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Port" EntityType="Self.Port" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service_Type" EntityType="Self.Service_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suds_Equipment" EntityType="Self.Suds_Equipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Тарифы" EntityType="Self.Тарифы" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_District_Request" Association="Self.FK_District_Request">
             <End Role="District" EntitySet="District" />
             <End Role="Request" EntitySet="Request" />
@@ -264,8 +324,7 @@
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Session1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -545,7 +604,67 @@
             <End Role="User" EntitySet="User" />
             <End Role="Request" EntitySet="Request" />
           </AssociationSet>
+          <EntitySet Name="Тарифы" EntityType="Session1Model.Тарифы" />
+          <EntitySet Name="Payments" EntityType="Session1Model.Payments" />
+          <EntitySet Name="Access_Networks" EntityType="Session1Model.Access_Networks" />
+          <EntitySet Name="Highway" EntityType="Session1Model.Highway" />
+          <EntitySet Name="Suds_Equipment" EntityType="Session1Model.Suds_Equipment" />
         </EntityContainer>
+        <EntityType Name="Тарифы">
+          <Key>
+            <PropertyRef Name="Услуга" />
+          </Key>
+          <Property Name="Услуга" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Навзание_тарифа" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Условия" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Стоимость_руб_мес" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Номер_абонента" />
+          </Key>
+          <Property Name="Дата_платежа" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Сумма_платежа" Type="Double" Nullable="false" />
+          <Property Name="Баланс_абонента" Type="Double" Nullable="false" />
+          <Property Name="Дата_баланска" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Задолженность" Type="Double" Nullable="false" />
+          <Property Name="Номер_абонента" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Access_Networks">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Наименование" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Количество_портов" Type="Int32" Nullable="false" />
+          <Property Name="Стандарт_передачи_данных" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Частота" Type="Double" Nullable="false" />
+          <Property Name="Интерфейсы" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Скорость_передачи_данных" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Место_расположения" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Highway">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Название" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="С_Частота" Type="Double" Nullable="false" />
+          <Property Name="C_Коэффициент_затухания" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_Технология_передачи_данных" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_Расположение" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Suds_Equipment">
+          <Key>
+            <PropertyRef Name="Серийный_номер" />
+          </Key>
+          <Property Name="Серийный_номер" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Наименование" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Порты" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Стандарт_передачи" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Скорость" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Адрес_абонента" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -662,6 +781,66 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Passport_Series_Number" ColumnName="Passport_Series_Number" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Тарифы">
+            <EntityTypeMapping TypeName="Session1Model.Тарифы">
+              <MappingFragment StoreEntitySet="Тарифы">
+                <ScalarProperty Name="Стоимость_руб_мес" ColumnName="Стоимость_руб_мес" />
+                <ScalarProperty Name="Условия" ColumnName="Условия" />
+                <ScalarProperty Name="Навзание_тарифа" ColumnName="Навзание_тарифа" />
+                <ScalarProperty Name="Услуга" ColumnName="Услуга" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="Session1Model.Payments">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="Номер_абонента" ColumnName="Номер_абонента" />
+                <ScalarProperty Name="Задолженность" ColumnName="Задолженность" />
+                <ScalarProperty Name="Дата_баланска" ColumnName="Дата_баланска" />
+                <ScalarProperty Name="Баланс_абонента" ColumnName="Баланс_абонента" />
+                <ScalarProperty Name="Сумма_платежа" ColumnName="Сумма_платежа" />
+                <ScalarProperty Name="Дата_платежа" ColumnName="Дата_платежа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Access_Networks">
+            <EntityTypeMapping TypeName="Session1Model.Access_Networks">
+              <MappingFragment StoreEntitySet="Access_Networks">
+                <ScalarProperty Name="Место_расположения" ColumnName="Место_расположения" />
+                <ScalarProperty Name="Скорость_передачи_данных" ColumnName="Скорость_передачи_данных" />
+                <ScalarProperty Name="Интерфейсы" ColumnName="Интерфейсы" />
+                <ScalarProperty Name="Частота" ColumnName="Частота" />
+                <ScalarProperty Name="Стандарт_передачи_данных" ColumnName="Стандарт_передачи_данных" />
+                <ScalarProperty Name="Количество_портов" ColumnName="Количество_портов" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный_номер" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Highway">
+            <EntityTypeMapping TypeName="Session1Model.Highway">
+              <MappingFragment StoreEntitySet="Highway">
+                <ScalarProperty Name="C_Расположение" ColumnName="C_Расположение" />
+                <ScalarProperty Name="C_Технология_передачи_данных" ColumnName="C_Технология_передачи_данных" />
+                <ScalarProperty Name="C_Коэффициент_затухания" ColumnName="C_Коэффициент_затухания" />
+                <ScalarProperty Name="С_Частота" ColumnName="С_Частота" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный_номер" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suds_Equipment">
+            <EntityTypeMapping TypeName="Session1Model.Suds_Equipment">
+              <MappingFragment StoreEntitySet="Suds_Equipment">
+                <ScalarProperty Name="Адрес_абонента" ColumnName="Адрес_абонента" />
+                <ScalarProperty Name="Скорость" ColumnName="Скорость" />
+                <ScalarProperty Name="Стандарт_передачи" ColumnName="Стандарт_передачи" />
+                <ScalarProperty Name="Порты" ColumnName="Порты" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Серийный_номер" ColumnName="Серийный_номер" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

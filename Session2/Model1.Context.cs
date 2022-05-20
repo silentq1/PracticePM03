@@ -15,11 +15,17 @@ namespace Session2
     
     public partial class Session1Entities : DbContext
     {
+        public static Session1Entities _dbcontext;
         public Session1Entities()
             : base("name=Session1Entities")
         {
         }
-    
+        public static Session1Entities GetContext()
+        {
+            if (_dbcontext == null)
+                _dbcontext = new Session1Entities();
+            return _dbcontext;
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -35,5 +41,10 @@ namespace Session2
         public virtual DbSet<Request> Request { get; set; }
         public virtual DbSet<Service_Type> Service_Type { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Тарифы> Тарифы { get; set; }
+        public virtual DbSet<Payments> Payments { get; set; }
+        public virtual DbSet<Access_Networks> Access_Networks { get; set; }
+        public virtual DbSet<Highway> Highway { get; set; }
+        public virtual DbSet<Suds_Equipment> Suds_Equipment { get; set; }
     }
 }

@@ -64,11 +64,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Abonent.xaml.cs">
+      <DependentUpon>Abonent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Access_Networks.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Billing.xaml.cs">
+      <DependentUpon>Billing.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connection_Point.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="District.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empty.xaml.cs">
+      <DependentUpon>Empty.xaml</DependentUpon>
     </Compile>
     <Compile Include="Hardware.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -77,6 +89,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Hardware_Type.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Highway.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Maintenance_Staff.cs">
@@ -90,6 +105,9 @@
     <Compile Include="Pages\Control.xaml.cs">
       <DependentUpon>Control.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Payments.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Port.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -99,9 +117,30 @@
     <Compile Include="Service_Type.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Suds_Equipment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Support.xaml.cs">
+      <DependentUpon>Support.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Тарифы.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Page Include="Abonent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Billing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Empty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -115,6 +154,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Support.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
